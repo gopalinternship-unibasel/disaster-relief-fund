@@ -12,6 +12,9 @@ The app shows where every wei of the campaign is, lets the selected account make
 checks each call against the contract before sending it, so a call the contract would reject shows
 the contract's own reason and nothing is sent.
 
+**Live app: https://gopalinternship-unibasel.github.io/disaster-relief-fund/** (simulation and
+Sepolia with MetaMask; nothing to install).
+
 ## Run it on any computer
 
 If the folder came as a zip, extract all of it first (Windows: right-click, Extract All); a file
@@ -19,6 +22,7 @@ opened from inside a zip cannot find the rest of the app.
 
 | What the computer has | What to do | What you get |
 | --- | --- | --- |
+| A web browser and internet | Open the live app above | Everything: the simulation, and Sepolia through MetaMask. |
 | Only a web browser | Double-click `Disaster-Relief-Fund.html` | The whole app with a chain that runs inside the page: six test accounts, a clock you can move forward. Works offline. |
 | Node.js | Windows: double-click `start-windows.bat`. macOS: double-click `start-mac.command`. Linux: in a terminal in the folder, `sh start-linux.sh`. Or anywhere: `npm start` | The same app at http://127.0.0.1:4173 (the next free port if that one is taken). Use this for MetaMask and Sepolia. Ctrl+C in the window stops it. |
 | Node.js 22.12 or later (or 24) | `npm install`, then `npm run dev`, `npm test`, `npm run build` | Development: change the app or the contract and test it. |
@@ -108,8 +112,14 @@ settings.
 | `npm run compile` | Compiles the contracts into `src/contract/artifact.ts` |
 | `npm run typecheck` | Type-checks the app and the tests |
 
-`dist/` can also go on any static web host (GitHub Pages, Netlify, a university web space): the app
-uses relative paths and `#` addresses, so it works from any sub-folder.
+## Deployment
+
+Every push to `main` runs `.github/workflows/pages.yml` on GitHub: it installs, runs all tests,
+builds, and publishes `dist/` to GitHub Pages. If a test fails, the live site keeps the previous
+version. The run is listed under the repository's Actions tab.
+
+`dist/` can also go on any other static web host (Netlify, a university web space): the app uses
+relative paths and `#` addresses, so it works from any sub-folder.
 
 ## Project layout
 
