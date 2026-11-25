@@ -1,0 +1,1 @@
+import{r as e}from"./rolldown-runtime-XKyaHtl9.js";import{w as t}from"./format-C7ICtifx.js";var n=e(t(),1);function r(e){(0,n.useEffect)(()=>{document.title=e?`${e} | Disaster Relief Fund`:`Disaster Relief Fund`},[e])}export{r as t};
